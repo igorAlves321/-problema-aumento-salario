@@ -9,30 +9,27 @@ namespace ProblemaAlmentoSalario
     {
         static void Main(string[] args)
         {
+            Funcionario f = new Funcionario();
             Console.Write("Digite o nome do funcionário: ");
-            string nome = Console.ReadLine();
+            f.Nome = Console.ReadLine();
 
             Console.Write("Digite o salário bruto do funcionário: ");
-            double salarioBruto = double.Parse(Console.ReadLine());
+            f.SalarioBruto = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("digite a tacha de imposto");
-            double impostop = double.Parse(Console.ReadLine());
+            Console.WriteLine("digite a porcentagem de imposto.");
+            f.ImpostoPorcentagem = double.Parse(Console.ReadLine());
 
-            double imposto = salarioBruto * (impostop / 100);
-            double salarioLiquido = salarioBruto - imposto;
-
-            Console.WriteLine($"Nome: {nome}");
-            Console.WriteLine($"Salário Líquido: R$ {salarioLiquido:F2}");
+            Console.WriteLine("dados do funcionário.");
+            Console.WriteLine($"Nome: {f.Nome}");
+            Console.WriteLine($"Salário Líquido: R$ {f.CalcularSalarioLiquido():F2}");
 
             Console.Write("Digite a porcentagem de aumento salarial: ");
             double aumentoPorcentagem = double.Parse(Console.ReadLine());
-            double aumentoValor = salarioBruto * (aumentoPorcentagem / 100);
-            double novoSalarioBruto = salarioBruto + aumentoValor;
-            double novoImposto = novoSalarioBruto * (impostop / 100);
-            double novoSalarioLiquido = novoSalarioBruto - novoImposto;
+            f.AumentarSalario(aumentoPorcentagem);
+            Console.WriteLine("Dados atualizados do funcionário:");
+            Console.WriteLine($"Nome: {f.Nome}");
+            Console.WriteLine($"Novo Salário Líquido: R$ {f.CalcularSalarioLiquido():F2}");
 
-            Console.WriteLine("dados atualizados");
-            Console.WriteLine($"Novo Salário Líquido: R$ {novoSalarioLiquido:F2}");
             Console.ReadKey();
         }
     }
