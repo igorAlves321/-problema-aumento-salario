@@ -1,15 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ProblemaAlmentoSalario
 {
     public class Funcionario
     {
-        public string Nome;
-        public double SalarioBruto;
-        public double ImpostoPorcentagem;
+
+        public string Nome { get; set; }
+        public double SalarioBruto { get; set; }
+        public double ImpostoPorcentagem { get; set; }
+
+        public Funcionario(string nome, double salarioBruto, double impostoPorcentagem)
+        {
+            Nome = nome;
+            SalarioBruto = salarioBruto;
+            ImpostoPorcentagem = impostoPorcentagem;
+        }
 
         public double CalcularSalarioLiquido()
         {

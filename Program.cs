@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ProblemaAlmentoSalario
 {
@@ -9,15 +6,16 @@ namespace ProblemaAlmentoSalario
     {
         static void Main(string[] args)
         {
-            Funcionario f = new Funcionario();
             Console.Write("Digite o nome do funcionário: ");
-            f.Nome = Console.ReadLine();
+            string nome = Console.ReadLine();
 
             Console.Write("Digite o salário bruto do funcionário: ");
-            f.SalarioBruto = double.Parse(Console.ReadLine());
+            double salarioBruto = double.Parse(Console.ReadLine());
 
             Console.WriteLine("digite a porcentagem de imposto.");
-            f.ImpostoPorcentagem = double.Parse(Console.ReadLine());
+            double impostoPorcentagem = double.Parse(Console.ReadLine());
+
+            Funcionario f = new Funcionario(nome, salarioBruto, impostoPorcentagem);
 
             Console.WriteLine("dados do funcionário.");
             Console.WriteLine($"Nome: {f.Nome}");
